@@ -1,0 +1,4 @@
+change the grid size in grid.h
+
+$ make
+$ ./shock_wave
