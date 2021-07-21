@@ -191,11 +191,9 @@ void exchang(double ***U, int s, int e, int left, int right, MPI_Comm comm)
 {   
     for(int k = 0; k < 4; k++)
     {
-        MPI_Send(&U[k][e][0], (gy + 2), MPI_DOUBLE, right, 0, comm);
-        MPI_Recv(&U[k][s-1][0], (gy + 2), MPI_DOUBLE, left, 0, comm, MPI_STATUS_IGNORE);
+        MPI_Sendrecv(&U[k][e][0], (gy + 2), MPI_DOUBLE, right, 0, &U[k][s-1][0], (gy + 2), MPI_DOUBLE, left, 0, comm, MPI_STATUS_IGNORE);
 
-        MPI_Send(&U[k][s][0], (gy + 2), MPI_DOUBLE, left, 1, comm);
-        MPI_Recv(&U[k][e+1][0], (gy + 2), MPI_DOUBLE, right, 1, comm, MPI_STATUS_IGNORE);
+        MPI_Sendrecv(&U[k][s][0], (gy + 2), MPI_DOUBLE, left, 1, &U[k][e+1][0], (gy + 2), MPI_DOUBLE, right, 1, comm, MPI_STATUS_IGNORE);
     }
 }
 
