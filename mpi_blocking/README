@@ -1,5 +1,0 @@
-change the grid size in grid.h
-change the number of processors in Makefile
-
-$ make
-$ make test
