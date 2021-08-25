@@ -1,0 +1,14 @@
+make
+
+./shock_wave 128
+
+make clean
+
+change the grid size in kernel.h
+
+#define gx 1200
+#define gy 300
+
+make
+
+./shock_wave 128
